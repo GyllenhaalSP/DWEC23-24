@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Práctica Obligatoria 2.2 DWEC Calculadora">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+<body>
+<article>
+    <main>
+        <section>
+            <table>
+                <tr>
+                    <td>
+                        <form name="calculadora">
+                            <label for="screen"></label>
+                            <input id="screen" name="screen" readonly type="text" value="">
+                            <br>
+                            <input class="operaciones" id="√" onclick="squareRoot()" type="button" value="√">
+                            <input class="operaciones" id="%" onclick="writeSymbolToArray(this.id)" type="button" value="%">
+                            <input class="operaciones" id=" mod " onclick="writeSymbolToArray(this.id)" type="button" value="mod">
+                            <input class="operaciones" id="/" onclick="writeSymbolToArray(this.id)" type="button" value="/">
+                            <br>
+                            <input id="7" onclick="writeSymbolToArray(this.id)" type="button" value="7">
+                            <input id="8" onclick="writeSymbolToArray(this.id)" type="button" value="8">
+                            <input id="9" onclick="writeSymbolToArray(this.id)" type="button" value="9">
+                            <input class="operaciones" id="*" onclick="writeSymbolToArray(this.id)" type="button" value="*">
+                            <br>
+                            <input id="4" onclick="writeSymbolToArray(this.id)" type="button" value="4">
+                            <input id="5" onclick="writeSymbolToArray(this.id)" type="button" value="5">
+                            <input id="6" onclick="writeSymbolToArray(this.id)" type="button" value="6">
+                            <input class="operaciones" id="-" onclick="writeSymbolToArray(this.id)" type="button" value="-">
+                            <br>
+                            <input id="1" onclick="writeSymbolToArray(this.id)" type="button" value="1">
+                            <input id="2" onclick="writeSymbolToArray(this.id)" type="button" value="2">
+                            <input id="3" onclick="writeSymbolToArray(this.id)" type="button" value="3">
+                            <input class="operaciones" id="+" onclick="writeSymbolToArray(this.id)" type="button" value="+">
+                            <br>
+                            <input class="c" id="C" onclick="erase()" type="button" value="C">
+                            <input id="0" onclick="writeSymbolToArray(this.id)" type="button" value="0">
+                            <input id="," onclick="writeSymbolToArray(this.id)" type="button" value=",">
+                            <input class="operaciones" id="=" onclick="calculate()" type="button" value="=">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</article>
+</body>
+</html>

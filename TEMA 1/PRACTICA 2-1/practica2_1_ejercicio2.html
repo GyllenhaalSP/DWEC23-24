@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 2</title>
+    <style></style>
+    <script>
+        var input1;
+        var input2;
+
+        function enteroRandom() {
+            return ((Math.random() * (10)) << 0);
+        }
+
+        function cargarArray(id) {
+            document.getElementById(id).value = generarArrayRandom().toString();
+        }
+
+        function generarArrayRandom() {
+            var array = []
+            var longitud = enteroRandom() + 1;
+            for (let i = 0; i < longitud; i++) {
+                array[i] = enteroRandom();
+            }
+            return array;
+        }
+
+        function concatenar() {
+            input1 = document.getElementById("input1").value;
+            input2 = document.getElementById("input2").value;
+            return document.getElementById("resultado").innerHTML = input1 + ',' + input2;
+        }
+    </script>
+</head>
+<body>
+
+<p>Introduce los primeros enteros separados por comas <br>
+    o pulsa el botón para obtener una lista de enteros aleatoria</p>
+<label for="input1"></label><input id="input1" name="input1" placeholder="Púlsame ->" type="text">
+<input id="ejemplo1" onclick="cargarArray('input1')" type="button" value="Ejemplo1"><br><br>
+<label for="input2"></label><input id="input2" name="input2" placeholder="Púlsame ->" type="text">
+<input id="ejemplo2" onclick="cargarArray('input2')" type="button" value="Ejemplo2"><br><br>
+<input id="concatenar" onclick="concatenar()" type="button" value="Concatenar"><br><br>
+<p id="resultado"></p>
+<footer>Daniel Alonso Lázaro</footer>
+
+</body>
+</html>

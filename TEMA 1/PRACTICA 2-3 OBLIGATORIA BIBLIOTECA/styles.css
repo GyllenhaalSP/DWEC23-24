@@ -1,0 +1,27 @@
+*{
+    background-color: wheat;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align: left;
+    margin: 0;
+    padding: 8px;
+}
+
+div > button{
+    position: relative;
+    left: 8%;
+    background-color: whitesmoke;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+

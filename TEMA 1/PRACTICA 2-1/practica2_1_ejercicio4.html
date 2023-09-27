@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 4</title>
+    <style></style>
+    <script>
+        var array = []
+
+        function cargarArray() {
+            array = document.getElementById("array").value.split(',');
+            rellenarPosiciones(array.length);
+        }
+
+        function rellenarPosiciones(longitud) {
+            var select = document.getElementById("posicion");
+            select.innerHTML = "";
+            for (let i = 0; i < longitud; i++) {
+                select.innerHTML += '<option value="' + i + '">' + (i + 1) + '</option>';
+            }
+        }
+
+        function insertarNumero() {
+            var posicion = document.getElementById("posicion").value;
+            var numero = document.getElementById("valor").value;
+            alert(array.length +' '+posicion)
+
+            if(posicion == (array.length-1)){
+                array.push(numero);
+            }else if(posicion == 0) {
+                array.unshift(numero);
+            }else{
+                array.splice(posicion, 0, numero);
+            }
+
+            document.getElementById("resultado").innerHTML = array;
+            document.getElementById("array").value = array;
+            cargarArray(array);
+
+            rellenarPosiciones(array.length)
+        }
+    </script>
+</head>
+<body>
+<p>Introduce los primeros enteros separados por comas: </p>
+<label for="array"></label><input id="array" placeholder="Array de enteros" type="text">
+<input id="ejemplo" onclick="cargarArray()" type="button" value="Ejemplo"><br><br>
+<label for="valor">Valor: </label><input id="valor" placeholder="Número a añadir" type="text">
+<label for="posicion"> Posición del array: </label>
+<select id="posicion"></select>
+<input id="insertar" onclick="insertarNumero()" type="button" value="Insertar">
+<p>Resultado: <span id="resultado"></span></p>
+<footer>Daniel Alonso Lázaro</footer>
+</body>
+</html>

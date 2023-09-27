@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 1</title>
+    <script>
+        var array = [];
+
+        function suma() {
+            var suma = 0;
+            for (var i = 0; i < array.length; i++) {
+                suma += array[i];
+            }
+            return suma;
+        }
+
+        function media() {
+            return suma() / array.length;
+        }
+
+        function mayorOMenor() {
+            var mayor = array[0];
+            var menor = array[0];
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] > mayor) {
+                    mayor = array[i];
+                }
+                if (array[i] < menor) {
+                    mayor = array[i];
+                }
+            }
+            return [mayor, menor];
+        }
+
+        function cargarArray() {
+            var input = document.getElementById("input").value;
+            if (input.includes(",")) {
+                array = input.split(",");
+            } else if (input.includes(".")) {
+                array = input.split(".");
+            } else {
+                alert("¡Los números tienen que estar separados por comas o punto decimal!")
+            }
+
+            for (var i = 0; i < array.length; i++) {
+                array[i] = parseInt(array[i]);
+            }
+        }
+
+        function calcular() {
+            if (array.length === 0) {
+                alert("Introduce un número!")
+            }
+            document.getElementById("suma").innerText = suma();
+            document.getElementById("media").innerText = media();
+            document.getElementById("mayor").innerText = mayorOMenor()[0];
+            document.getElementById("menor").innerText = mayorOMenor()[1];
+        }
+    </script>
+</head>
+<body>
+<p>Introduce los enteros separados por comas</p>
+<label for="input"></label><input id="input" name="input" type="text">
+<input id="cargar" onclick="cargarArray()" type="button" value="Cargar ejemplo">
+<br><br>
+<input id="calcular" onclick="calcular()" type="button" value="Calcular">
+<br><br>
+<p>
+    La suma es: <span id="suma"></span><br>
+    La media es: <span id="media"></span><br>
+    El mayor es: <span id="mayor"></span><br>
+    El menor es: <span id="menor"></span><br>
+</p>
+</body>
+</html>

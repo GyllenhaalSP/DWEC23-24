@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 3</title>
+    <style></style>
+    <script>
+        var array = [];
+
+        function cargarArray() {
+            var input = document.getElementById("input").value;
+            if (input.includes(",")) {
+                array = input.split(",");
+            }else if (input.includes(".")) {
+                array = input.split(".")
+            } else {
+                alert("¡Los números tienen que estar separados por comas o punto decimal!")
+            }
+            array.sort(function (a, b){return a-b;});
+            alert(array);
+        }
+
+        function ordenar(dir) {
+            switch (dir) {
+                case "ascendente":
+                    document.getElementById("resultadoAscendente").innerHTML = array.toString();
+                    break;
+                case "descendente":
+                    document.getElementById("resultadoDescendente").innerText = array.reverse().toString();
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+<p>Introduce números enteros separados por comas:</p>
+<label for="input"></label><input id="input" name="input" type="text">
+<input id="ejemplo" onclick="cargarArray()" type="button" value="Introduce un ejemplo"><br><br>
+<input id="ascendente" onclick="ordenar(this.id)" type="button" value="Ascendente"><br><br>
+<span id="resultadoAscendente"></span><br><br>
+<input id="descendente" onclick="ordenar(this.id)" type="button" value="Descendente"><br><br>
+<span id="resultadoDescendente"></span><br><br>
+<footer>Daniel Alonso Lázaro</footer>
+</body>
+</html>
