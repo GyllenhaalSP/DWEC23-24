@@ -1,42 +1,50 @@
-var libros = [];
+var books = [];
+const library = document.getElementById("biblioteca");
+window.onload = function () {
+    showInfo();
+}
 
-function Libro(titulo, autor, year, genero){
-    this.titulo = titulo;
-    this.autor = autor;
+function Book(title, author, year, genre) {
+    this.title = title;
+    this.author = author;
     this.year = year;
-    this.genero = genero;
+    this.genre = genre;
 }
 
-function agregarLibro(){
-    var libro = new Libro(
-        window.prompt("Introduce el título"),
-        window.prompt("Introduce el autor"),
-        window.prompt("Introduce el año"),
-        window.prompt("Introduce el género")
-    )
-    libros.push(libro);
-    mostrarInfo();
+function addBook() {
+    var libro = new Book(window.prompt("Introduce el tÃ­tulo"), window.prompt("Introduce el autor"), window.prompt("Introduce el aÃ±o"), window.prompt("Introduce el gÃ©nero"))
+    books.push(libro);
+    showInfo();
 }
 
-function mostrarInfo(){
-    const biblioteca = document.getElementById("biblioteca");
-    biblioteca.innerHTML = "";
+function showInfo() {
+    if (books.length === 0) {
+        library.innerHTML = "<div id='empty'>-- No hay libros en la biblioteca --</div>";
+        return;
+    }
+    library.innerHTML = "";
 
-    for(let libro of libros){
-        biblioteca.innerHTML += "<span> Título: " + libro.titulo + ", Autor: " + libro.autor + ", Año: " + libro.year + ", Género: " + libro.genero + "</span><br>";
+    for (let book of books) {
+        library.innerHTML += "<div class='books'> TÃ­tulo: " + book.title + "<br>Autor: " + book.author + "<br> AÃ±o: " + book.year + "<br>GÃ©nero: " + book.genre + "</div>";
+
+        if (book !== books[books.length - 1]) {
+            library.innerHTML += "<hr>";
+        }
     }
 }
 
-function eliminarLibro(){
-    var busqueda = window.prompt("Introduce el título del libro que quieres eliminar");
+function deleteBook() {
+    var search = window.prompt("Introduce el tÃ­tulo del libro que quieres eliminar");
 
-    var librosFiltrados = libros.filter(libro => libro.titulo !== busqueda);
+    var filteredBooks = books.filter(book => book.title !== search);
 
-    if (librosFiltrados.length < libros.length) {
-        alert("'" + busqueda + "'" + " eliminado satisfactoriamente.");
-        libros = librosFiltrados;
-        mostrarInfo();
+    if (filteredBooks.length < books.length) {
+        var deletedBooks = books.length - filteredBooks.length;
+        alert(deletedBooks + ((books.length - filteredBooks.length) === 1 ? " libro eliminado." : " libros eliminados."));
+        alert("'" + search + "'" + " eliminado satisfactoriamente.");
+        books = filteredBooks;
     } else {
-        alert("No se ha encontrado '" + busqueda + "' en la BB.DD.");
+        alert("No se ha encontrado '" + search + "' en la BB.DD.");
     }
+    showInfo();
 }

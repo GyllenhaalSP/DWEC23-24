@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Libros</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
+<div id="container">
 <h1>Biblioteca de Libros</h1>
-<div id="biblioteca"></div>
-<div>
-    <button onclick="agregarLibro()" id="agregar">Agregar Nuevo Libro</button>
-    <button onclick="eliminarLibro()" id="eliminar">Eliminar Libro</button>
+    <div>
+        <button onclick="addBook()" id="agregar">Agregar Nuevo Libro</button>
+        <button onclick="deleteBook()" id="eliminar">Eliminar Libro</button>
+    </div>
 </div>
+<div id="biblioteca"></div>
 </body>
 </html>
