@@ -6,21 +6,21 @@
     <meta name="author" content="Daniel Alonso Lázaro">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
-    <title>PRÁCTICA FINAL OBLIGATORIA  - PREPARACIÓN EXAMEN</title>
+    <title>PRÁCTICA FINAL OBLIGATORIA - PREPARACIÓN EXAMEN</title>
     <script src="main.js" defer></script>
 </head>
 <body>
-<article>
+<article id="ej1">
     <h1>EJERCICIO 1 - GESTIÓN DE PELÍCULAS</h1>
     <h1>Listado de Películas</h1>
     <div id="peliculas"></div>
 </article>
-<article>
+<article id="ej2">
     <h1>EJERCICIO 2 - IMPRESIÓN DE CUADRADO EN HTML</h1>
     <h1>Impresión de Cuadrado</h1>
     <pre id="cuadrado"></pre>
 </article>
-<article>
+<article id="ej3">
     <h1>EJERCICIO 3 - CALCULO DE DÍAS EN UN MES</h1>
     <h1>Ingresa un mes</h1>
     <label for="mes">Mes: </label>
@@ -28,8 +28,28 @@
     <button id="calcular" onclick="calcularDias()">Calcular</button>
     <div id="resultado"></div>
 </article>
-<article>
-
+<article id="ej4">
+    <h1>EJERCICIO 4 - REGISTRO DE ESTUDIANTES</h1>
+    <h1>Registro de Estudiantes</h1>
+    <pre>
+        -Para agregar un estudiante, introducir nombre, edad, materia y pulsar "Registrar estudiante".
+        -Para agregar una materia, introducir el nombre del alumno en el campo nombre <br>         y la materia en el campo agregar materia y pulsar "Agregar materia".
+        -Para mostrar la información de los estudiantes, pulsar "Mostrar información".
+    </pre>
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" name="nombre"><br>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad"> <br>
+    <label for="materias">Materias:</label>
+    <input type="text" id="materias" name="materias"> <br>
+    <hr>
+    <label for="materia">Agregar materia:</label>
+    <input type="text" id="materia" name="materia">
+    <button id="agregar" onclick="agregarMateria()">Agregar Materia</button>
+    <hr>
+    <button id="registrar" onclick="agregarEstudiante()">Registrar estudiante</button>
+    <button id="mostrar" onclick="mostrarInfo()">Mostrar información</button>
+    <div id="info"></div>
 </article>
 </body>
 </html>

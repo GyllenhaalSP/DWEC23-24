@@ -58,3 +58,42 @@ function calcularDias(){
 }
 
 //EJERCICIO 4
+var estudiantes = [];
+
+function Estudiante(nombre, edad, materias){
+    this.nombre = nombre;
+    this.edad = edad;
+    this.materias = materias;
+}
+
+function agregarEstudiante(){
+    var nombre = document.getElementById("nombre").value;
+    var edad = document.getElementById("edad").value;
+    var materias = document.getElementById("materias").value.split(",");
+    var estudiante = new Estudiante(nombre, edad, materias);
+    estudiantes.push(estudiante);
+    document.getElementById("nombre").value = "";
+    document.getElementById("edad").value = "";
+    document.getElementById("materias").value = "";
+}
+
+function agregarMateria(){
+    var materia = document.getElementById("materia").value;
+    for(let estudiante of estudiantes) {
+        if (estudiante.nombre === document.getElementById("nombre").value) {
+            estudiante.materias.push(materia);
+            document.getElementById("materia").value = "";
+            return;
+        }
+    }
+    alert("No existe ningún estudiante con ese nombre");
+}
+
+function mostrarInfo(){
+    document.getElementById("info").innerHTML = "";
+    for (let estudiante of estudiantes){
+        document.getElementById("info").innerHTML += "Nombre: " + estudiante.nombre + "<br>Edad: " + estudiante.edad + "<br>Materias: " + estudiante.materias.join(", ") + "<br><br>";
+    }
+
+}
+
