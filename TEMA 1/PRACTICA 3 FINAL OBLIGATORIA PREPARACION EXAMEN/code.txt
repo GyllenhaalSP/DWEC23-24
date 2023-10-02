@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="PRACTICA FINAL OBLIGATORIA">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>PRÁCTICA FINAL OBLIGATORIA - PREPARACIÓN EXAMEN</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+<article id="ej1">
+    <h1>EJERCICIO 1 - GESTIÓN DE PELÍCULAS</h1>
+    <h1>Listado de Películas</h1>
+    <div id="peliculas"></div>
+</article>
+<article id="ej2">
+    <h1>EJERCICIO 2 - IMPRESIÓN DE CUADRADO EN HTML</h1>
+    <h1>Impresión de Cuadrado</h1>
+    <pre id="cuadrado"></pre>
+</article>
+<article id="ej3">
+    <h1>EJERCICIO 3 - CALCULO DE DÍAS EN UN MES</h1>
+    <h1>Ingresa un mes</h1>
+    <label for="mes">Mes: </label>
+    <input type="text" id="mes" name="mes">
+    <button id="calcular" onclick="calcularDias()">Calcular</button>
+    <div id="resultado"></div>
+</article>
+<article id="ej4">
+    <h1>EJERCICIO 4 - REGISTRO DE ESTUDIANTES</h1>
+    <h1>Registro de Estudiantes</h1>
+    <pre>
+        -Para agregar un estudiante, introducir nombre, edad, materia y pulsar "Registrar estudiante".
+        -Para agregar una materia, introducir el nombre del alumno en el campo nombre <br>         y la materia en el campo agregar materia y pulsar "Agregar materia".
+        -Para mostrar la información de los estudiantes, pulsar "Mostrar información".
+    </pre>
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" name="nombre"><br>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad"> <br>
+    <label for="materias">Materias:</label>
+    <input type="text" id="materias" name="materias"> <br>
+    <hr>
+    <label for="materia">Agregar materia:</label>
+    <input type="text" id="materia" name="materia">
+    <button id="agregar" onclick="agregarMateria()">Agregar Materia</button>
+    <hr>
+    <button id="registrar" onclick="agregarEstudiante()">Registrar estudiante</button>
+    <button id="mostrar" onclick="mostrarInfo()">Mostrar información</button>
+    <div id="info"></div>
+</article>
+</body>
+</html>
+
+
+window.onload = function(){
+    listarPeliculas();
+    imprimirCuadrado();
+}
+
+//EJERCICIO 1
+var arrayPeliculas = [
+    ['El padrino', '1972',
+        ['Marlon Brando', 'Al Pacino', 'James Caan']],
+    ['Titanic', '1997',
+        ['Leonardo DiCaprio', 'Kate Winslett', 'Billy Zane']],
+    ['Matrix', '1999',
+        ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss']]
+];
+
+var peliculasHTML = document.getElementById("peliculas");
+
+function listarPeliculas(){
+    for (let pelicula of arrayPeliculas){
+        peliculasHTML.innerHTML +=
+            "<h2>"
+            + pelicula[0]
+            + "</h2><p>"
+            + pelicula[1]
+            + "</p><p>Actores principales: "
+            + pelicula[2].join(", ")
+            + "</p>";
+    }
+}
+
+//EJERCICIO 2
+function imprimirCuadrado(){
+    var altura = 10;
+    var cuadrado = document.getElementById("cuadrado");
+    for(let i = 1; i <= altura; i++){
+        for(let j = 1; j <= altura; j++){
+            cuadrado.innerHTML +=
+                (i === 1
+                    || i === altura
+                    || j === 1
+                    || j === altura) ? " *" : "&nbsp;&nbsp;";
+        }
+        cuadrado.innerHTML += ("<br>");
+    }
+}
+
+//EJERCICIO 3
+function calcularDias(){
+    var mes = document.getElementById("mes").value;
+    if (mes > 0 && mes < 13) {
+        var year = new Date().getFullYear();
+        var dias = new Date(year, mes, 0).getDate();
+        alert("El mes " + mes + " tiene " + dias + " días");
+        document.getElementById("resultado").innerHTML = ("<p>El mes " + mes + " tiene " + dias + " días</p>");
+    } else {
+        alert("Introduce un mes válido");
+    }
+}
+
+//EJERCICIO 4
+var estudiantes = [];
+
+function Estudiante(nombre, edad, materias){
+    this.nombre = nombre;
+    this.edad = edad;
+    this.materias = materias;
+}
+
+function agregarEstudiante(){
+    var nombre = document.getElementById("nombre").value;
+    var edad = document.getElementById("edad").value;
+    var materias = document.getElementById("materias").value.split(",");
+    var estudiante = new Estudiante(nombre, edad, materias);
+    estudiantes.push(estudiante);
+    document.getElementById("nombre").value = "";
+    document.getElementById("edad").value = "";
+    document.getElementById("materias").value = "";
+}
+
+function agregarMateria(){
+    var materia = document.getElementById("materia").value;
+    for(let estudiante of estudiantes) {
+        if (estudiante.nombre === document.getElementById("nombre").value) {
+            estudiante.materias.push(materia);
+            document.getElementById("materia").value = "";
+            return;
+        }
+    }
+    alert("No existe ningún estudiante con ese nombre");
+}
+
+function mostrarInfo(){
+    document.getElementById("info").innerHTML = "";
+    for (let estudiante of estudiantes){
+        document.getElementById("info").innerHTML += "Nombre: " + estudiante.nombre + "<br>Edad: " + estudiante.edad + "<br>Materias: " + estudiante.materias.join(", ") + "<br><br>";
+    }
+
+}
+
+input{
+    margin: 2px;
+}
+
+pre{
+    margin: 0;
+    padding: 0;
+}

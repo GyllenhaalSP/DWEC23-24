@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 1</title>
+    <script>
+        var array = [];
+
+        function suma() {
+            var suma = 0;
+            for (var i = 0; i < array.length; i++) {
+                suma += array[i];
+            }
+            return suma;
+        }
+
+        function media() {
+            return suma() / array.length;
+        }
+
+        function mayorOMenor() {
+            var mayor = array[0];
+            var menor = array[0];
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] > mayor) {
+                    mayor = array[i];
+                }
+                if (array[i] < menor) {
+                    mayor = array[i];
+                }
+            }
+            return [mayor, menor];
+        }
+
+        function cargarArray() {
+            var input = document.getElementById("input").value;
+            if (input.includes(",")) {
+                array = input.split(",");
+            } else if (input.includes(".")) {
+                array = input.split(".");
+            } else {
+                alert("¡Los números tienen que estar separados por comas o punto decimal!")
+            }
+
+            for (var i = 0; i < array.length; i++) {
+                array[i] = parseInt(array[i]);
+            }
+        }
+
+        function calcular() {
+            if (array.length === 0) {
+                alert("Introduce un número!")
+            }
+            document.getElementById("suma").innerText = suma();
+            document.getElementById("media").innerText = media();
+            document.getElementById("mayor").innerText = mayorOMenor()[0];
+            document.getElementById("menor").innerText = mayorOMenor()[1];
+        }
+    </script>
+</head>
+<body>
+<p>Introduce los enteros separados por comas</p>
+<label for="input"></label><input id="input" name="input" type="text">
+<input id="cargar" onclick="cargarArray()" type="button" value="Cargar ejemplo">
+<br><br>
+<input id="calcular" onclick="calcular()" type="button" value="Calcular">
+<br><br>
+<p>
+    La suma es: <span id="suma"></span><br>
+    La media es: <span id="media"></span><br>
+    El mayor es: <span id="mayor"></span><br>
+    El menor es: <span id="menor"></span><br>
+</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 2</title>
+    <style></style>
+    <script>
+        var input1;
+        var input2;
+
+        function enteroRandom() {
+            return ((Math.random() * (10)) << 0);
+        }
+
+        function cargarArray(id) {
+            document.getElementById(id).value = generarArrayRandom().toString();
+        }
+
+        function generarArrayRandom() {
+            var array = []
+            var longitud = enteroRandom() + 1;
+            for (let i = 0; i < longitud; i++) {
+                array[i] = enteroRandom();
+            }
+            return array;
+        }
+
+        function concatenar() {
+            input1 = document.getElementById("input1").value;
+            input2 = document.getElementById("input2").value;
+            return document.getElementById("resultado").innerHTML = input1 + ',' + input2;
+        }
+    </script>
+</head>
+<body>
+
+<p>Introduce los primeros enteros separados por comas <br>
+    o pulsa el botón para obtener una lista de enteros aleatoria</p>
+<label for="input1"></label><input id="input1" name="input1" placeholder="Púlsame ->" type="text">
+<input id="ejemplo1" onclick="cargarArray('input1')" type="button" value="Ejemplo1"><br><br>
+<label for="input2"></label><input id="input2" name="input2" placeholder="Púlsame ->" type="text">
+<input id="ejemplo2" onclick="cargarArray('input2')" type="button" value="Ejemplo2"><br><br>
+<input id="concatenar" onclick="concatenar()" type="button" value="Concatenar"><br><br>
+<p id="resultado"></p>
+<footer>Daniel Alonso Lázaro</footer>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 3</title>
+    <style></style>
+    <script>
+        var array = [];
+
+        function cargarArray() {
+            var input = document.getElementById("input").value;
+            if (input.includes(",")) {
+                array = input.split(",");
+            }else if (input.includes(".")) {
+                array = input.split(".")
+            } else {
+                alert("¡Los números tienen que estar separados por comas o punto decimal!")
+            }
+            array.sort(function (a, b){return a-b;});
+            alert(array);
+        }
+
+        function ordenar(dir) {
+            switch (dir) {
+                case "ascendente":
+                    document.getElementById("resultadoAscendente").innerHTML = array.toString();
+                    break;
+                case "descendente":
+                    document.getElementById("resultadoDescendente").innerText = array.reverse().toString();
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+<p>Introduce números enteros separados por comas:</p>
+<label for="input"></label><input id="input" name="input" type="text">
+<input id="ejemplo" onclick="cargarArray()" type="button" value="Introduce un ejemplo"><br><br>
+<input id="ascendente" onclick="ordenar(this.id)" type="button" value="Ascendente"><br><br>
+<span id="resultadoAscendente"></span><br><br>
+<input id="descendente" onclick="ordenar(this.id)" type="button" value="Descendente"><br><br>
+<span id="resultadoDescendente"></span><br><br>
+<footer>Daniel Alonso Lázaro</footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 4</title>
+    <style></style>
+    <script>
+        var array = []
+
+        function cargarArray() {
+            array = document.getElementById("array").value.split(',');
+            rellenarPosiciones(array.length);
+        }
+
+        function rellenarPosiciones(longitud) {
+            var select = document.getElementById("posicion");
+            select.innerHTML = "";
+            for (let i = 0; i < longitud; i++) {
+                select.innerHTML += '<option value="' + i + '">' + (i + 1) + '</option>';
+            }
+        }
+
+        function insertarNumero() {
+            var posicion = document.getElementById("posicion").value;
+            var numero = document.getElementById("valor").value;
+            alert(array.length +' '+posicion)
+
+            if(posicion == (array.length-1)){
+                array.push(numero);
+            }else if(posicion == 0) {
+                array.unshift(numero);
+            }else{
+                array.splice(posicion, 0, numero);
+            }
+
+            document.getElementById("resultado").innerHTML = array;
+            document.getElementById("array").value = array;
+            cargarArray(array);
+
+            rellenarPosiciones(array.length)
+        }
+    </script>
+</head>
+<body>
+<p>Introduce los primeros enteros separados por comas: </p>
+<label for="array"></label><input id="array" placeholder="Array de enteros" type="text">
+<input id="ejemplo" onclick="cargarArray()" type="button" value="Ejemplo"><br><br>
+<label for="valor">Valor: </label><input id="valor" placeholder="Número a añadir" type="text">
+<label for="posicion"> Posición del array: </label>
+<select id="posicion"></select>
+<input id="insertar" onclick="insertarNumero()" type="button" value="Insertar">
+<p>Resultado: <span id="resultado"></span></p>
+<footer>Daniel Alonso Lázaro</footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <script>
+        function suma(a, b) {
+            return a + b;
+        }
+
+        function resta(a, b) {
+            return a - b;
+        }
+
+        function multiplicacion(a, b) {
+            return a * b;
+        }
+
+        function division(a, b) {
+            if (b !== 0) {
+                return a / b;
+            } else {
+                return "Error: No se puede dividir por cero";
+            }
+        }
+
+        var num1 = 3;
+        var num2 = 2;
+
+        alert("El resultado de sumar " + num1 + " + " + num2 + " es " + suma(num1, num2));
+        alert("El resultado de restar " + num1 + " - " + num2 + " es " + resta(num1, num2));
+        alert("El resultado de multiplicar " + num1 + " * " + num2 + " es " + multiplicacion(num1, num2));
+        alert("El resultado de dividir " + num1 + " / " + num2 + " es " + division(num1, num2));
+
+    </script>
+</head>
+<body>
+<h1>Daniel Alonso Lázaro y Víctor Hellín Sáez</h1>
+</body>
+</html>

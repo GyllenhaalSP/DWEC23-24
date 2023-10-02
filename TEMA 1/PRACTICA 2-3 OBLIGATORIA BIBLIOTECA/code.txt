@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Práctica Obligatoria Biblioteca">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Libros</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+<div id="container">
+<h1>Biblioteca de Libros</h1>
+    <div>
+        <button onclick="addBook()" id="agregar">Agregar Nuevo Libro</button>
+        <button onclick="deleteBook()" id="eliminar">Eliminar Libro</button>
+    </div>
+</div>
+<div id="biblioteca"></div>
+</body>
+</html>
+
+var books = [];
+const library = document.getElementById("biblioteca");
+window.onload = function () {
+    showInfo();
+}
+
+function Book(title, author, year, genre) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.genre = genre;
+}
+
+function addBook() {
+    var libro = new Book(window.prompt("Introduce el título"), window.prompt("Introduce el autor"), window.prompt("Introduce el año"), window.prompt("Introduce el género"))
+    books.push(libro);
+    showInfo();
+}
+
+function showInfo() {
+    if (books.length === 0) {
+        library.innerHTML = "<div id='empty'>-- No hay libros en la biblioteca --</div>";
+        return;
+    }
+    library.innerHTML = "";
+
+    for (let book of books) {
+        library.innerHTML += "<div class='books'> Título: " + book.title + "<br>Autor: " + book.author + "<br> Año: " + book.year + "<br>Género: " + book.genre + "</div>";
+
+        if (book !== books[books.length - 1]) {
+            library.innerHTML += "<hr>";
+        }
+    }
+}
+
+function deleteBook() {
+    var search = window.prompt("Introduce el título del libro que quieres eliminar");
+
+    var filteredBooks = books.filter(book => book.title !== search);
+
+    if (filteredBooks.length < books.length) {
+        var deletedBooks = books.length - filteredBooks.length;
+        alert(deletedBooks + ((books.length - filteredBooks.length) === 1 ? " libro eliminado." : " libros eliminados."));
+        alert("'" + search + "'" + " eliminado satisfactoriamente.");
+        books = filteredBooks;
+    } else {
+        alert("No se ha encontrado '" + search + "' en la BB.DD.");
+    }
+    showInfo();
+}
+
+*{
+    background-color: #f0f4f7;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    margin: 0;
+    padding: 8px;
+    color: lightskyblue;
+    text-shadow: 3px 3px 6px black;
+    font-size: 50px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2% 20% 2% 20%;
+    border: solid 5px #0078d4;
+    border-radius: 25px;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+hr {
+    width: 100%;
+    border: 1px dashed #0078d4;
+}
+
+div > button{
+    background-color: #f0f4f7;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+div > button:hover{
+    background-color: #0078d4;
+    color: white;
+    font-weight: bold;
+    border: 3px solid black;
+}
+
+#biblioteca > div#empty{
+    display: flex;
+    margin: auto;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.books{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1% 1% 1% 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+#biblioteca{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2% 6% 2% 6%;
+    border: solid 5px #0078d4;
+    border-radius: 25px;
+    overflow: hidden;
+    padding: 10px 10px 10px 25px;
+}
