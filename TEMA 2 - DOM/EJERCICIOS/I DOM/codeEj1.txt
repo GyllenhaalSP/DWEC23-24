@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="TEMA 2 DOM">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ejercicio 1</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <h1 id="titulo">¡Hola mundo!</h1>
+    <h2>getElementsById()</h2>
+    <p id="parrafo">Aquí estamos, modificando el DOM.</p>
+    <button id="cambia" name="cambia" value="cambia" onclick="cambiar()">¡Cámbiame de color!</button>
+</div>
+</body>
+</html>
+
+body{
+    color: red;
+}
+
+function cambiar(){
+    if(document.getElementById("parrafo").style.color === "red"){
+        document.getElementById("titulo").innerHTML = "Hola Universo!";
+        document.getElementById("parrafo").style.color = "blue";
+    }else{
+        document.getElementById("titulo").innerHTML = "Hola Mundo!";
+        document.getElementById("parrafo").style.color = "red";
+    }
+}

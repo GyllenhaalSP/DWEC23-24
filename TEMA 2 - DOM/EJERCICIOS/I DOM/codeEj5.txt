@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="TEMA 2 - DOM">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJERCICIO 5</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div class="item">
+
+</div>
+
+<div class="destacado">Destacado 1</div>
+
+<div class="oculto">Oculto 1</div>
+
+<div class="item">Item 1</div>
+
+<div class="destacado">Destacado 2</div>
+
+<div class="oculto">Oculto 2</div>
+
+<div class="destacado">Destacado 3</div>
+
+<div class="oculto">Oculto 3</div>
+
+<div class="destacado">Destacado 4</div>
+
+<div class="item">Item 2</div>
+
+<button onclick="select()">¡Seleccióname!</button>
+</body>
+</html>
+
+function select(){
+    var item = document.querySelectorAll(".item");
+    console.log(item);
+    var destacado = document.querySelectorAll(".destacado:nth-of-type(-n+3)");
+    console.log(destacado);
+    var oculto = document.querySelectorAll(".oculto:nth-last-of-type(-n+2)");
+    console.log(oculto);
+}
