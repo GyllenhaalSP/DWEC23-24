@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="DOM II - EJERCICIOS">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJERCICIO 5 - Cambiar Estilo de Fondo y Tamaño de Texto</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <h1>Cambiar Estilo de Fondo y Tamaño de Texto</h1>
+    <button id="cambiaEstilos" onclick="cambiarEstilos()">Cambiar Estilo</button>
+    <p id="parrafo">Este es un párrafo de ejemplo.</p>
+</div>
+</body>
+</html>
+
+function cambiarEstilos(){
+    var parrafo = document.getElementById("parrafo");
+    parrafo.style.fontSize = "30px";
+    parrafo.style.backgroundColor = "lightblue";
+}

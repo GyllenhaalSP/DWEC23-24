@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="DOM II - EJERCICIOS">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="author" content="Víctor Hellín Sáez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJERCICIO 7 - MANIPULAR <a></title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <a id="enlace" href="https://www.google.es">A Google!</a><br>
+    <button id="cambiaHREF" onclick="cambiaEnlace()">¡Cambia el enlace!</button>
+</div>
+</body>
+</html>
+
+function cambiaEnlace(){
+    var enlace = document.getElementById("enlace");
+    enlace.href = "http://asyncore.ddns.net";
+    enlace.textContent = "¡A asyncore.ddns.net!";
+}

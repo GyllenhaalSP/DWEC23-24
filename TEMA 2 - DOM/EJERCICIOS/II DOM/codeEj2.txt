@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="DOM II - EJERCICIOS">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ejercicio 2 - innerHTML</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <h1>Modificar el contenido con innerHTML vs textContext</h1>
+    <p id="parrafo">Este es un párrafo de ejemplo</p>
+    <button id="cambiarInnerHTML" onclick="cambiarConInnerHTML()">Cambiar con innerHTML</button>
+    <button id="cambiarTextContent" onclick="cambiarConTextContent()">Cambiar con textContent</button>
+</div>
+</body>
+</html>
+
+function cambiarConTextContent(){
+    var parrafo = document.getElementById("parrafo");
+    parrafo.textContent = "¡El contenido ha sido cambiado con <b>textContent</b>!";
+}
+
+function cambiarConInnerHTML(){
+    var parrafo = document.getElementById("parrafo");
+    parrafo.innerHTML = "¡El contenido ha sido cambiado con <b>innerHTML</b>!";
+}

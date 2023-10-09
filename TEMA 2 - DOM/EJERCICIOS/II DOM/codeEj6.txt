@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="DOM II - EJERCICIOS">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJERCICIO 6 - CAMBIO IMÁGENES</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <img id="evolucion" src="resources/bulbasaur.jpg" alt="Bulbasaur"><br>
+    <button onclick="evoluciona()">¡Evoluciona!</button>
+</div>
+</body>
+</html>
+
+function evoluciona(){
+    var imagen = document.getElementById("evolucion");
+    if (imagen.src === "http://localhost:63343/DWEC23-24/TEMA%202%20-%20DOM/EJERCICIOS/II%20DOM/Ej6/resources/bulbasaur.jpg"){
+        imagen.src = "resources/ivysaur.jpg";
+        imagen.alt = "Ivysaur";
+    }else if (imagen.src === "http://localhost:63343/DWEC23-24/TEMA%202%20-%20DOM/EJERCICIOS/II%20DOM/Ej6/resources/ivysaur.jpg"){
+        imagen.src = "resources/venusaur.jpg";
+        imagen.alt = "Venusaur";
+    }else{
+        alert("No hay más evoluciones");
+    }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="DOM II - EJERCICIOS">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ejercicio 1 - textContent</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <h1>Modificar el contenido con textContent</h1>
+    <p id="parrafo">Este es un párrafo de ejemplo</p>
+    <button id="cambiar" onclick="cambiarContenido()">Cambiar Contenido</button>
+</div>
+</body>
+</html>
+
+function cambiarContenido(){
+    var parrafo = document.getElementById("parrafo");
+    parrafo.textContent = "¡El contenido ha sido cambiado!";
+}
