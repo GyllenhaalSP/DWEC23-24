@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJERCICIO 3</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <h1>Elemento a Resaltar</h1>
+    <p id="parrafo">Este es un párrafo que puede ser resaltado.</p>
+    <button id="resaltar" onclick="resaltar()">+</button>
+    <button id="notificar" onclick="notificar()">Verificar resaltado</button>
+</div>
+<br>
+<div id="verificar">
+
+</div>
+</body>
+</html>
+
+function resaltar(){
+    var parrafo = document.getElementById("parrafo");
+    parrafo.classList.toggle("resaltado");
+}
+
+function notificar(){
+    var parrafo = document.getElementById("parrafo");
+    var verificar = document.getElementById("verificar");
+    if(parrafo.classList.value === "resaltado") {
+     verificar.textContent = "El párrafo está resaltado";
+    } else {
+        verificar.textContent = "El párrafo no está resaltado";
+    }
+}
+
+.resaltado {
+    color: red;
+    font-weight: bold;
+}
