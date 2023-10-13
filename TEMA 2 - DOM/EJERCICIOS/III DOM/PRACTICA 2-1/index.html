@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<main>
+    <header>
+        <nav>
+            <h1>Práctica DOM Avanzada</h1>
+        </nav>
+    </header>
+    <section class="seccion1">
+        <div class="titulo">
+            <h2>Sección 1</h2>
+        </div>
+        <div class="botones">
+            <input type="button" value="Resaltar Elementos" onclick="resaltarElemento('lista1')">
+            <input type="button" value="Ocultar Elementos" onclick="ocultarElemento('lista1')">
+            <input type="button" value="Mostrar Elementos" onclick="mostrarElemento()">
+        </div>
+        <div>
+            <ul id="lista1">
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+        </div>
+    </section>
+    <section class="seccion2">
+        <div class="titulo">
+            <h2>Sección 2</h2>
+        </div>
+        <div class="botones">
+            <input type="button" value="Resaltar Elementos" onclick="resaltarElemento('lista2')">
+            <input type="button" value="Ocultar Elementos" onclick="ocultarElemento('lista2')">
+            <input type="button" value="Mostrar Elementos" onclick="mostrarElemento()">
+        </div>
+        <div>
+            <ol id="lista2">
+                <li>Elemento A</li>
+                <li>Elemento B</li>
+                <li>Elemento C</li>
+            </ol>
+        </div>
+    </section>
+    <section class="seccion3">
+        <div class="titulo">
+            <h2>Sección 2</h2>
+        </div>
+        <div class="botones">
+            <input type="button" value="Resaltar Elementos" onclick="resaltarElemento('lista3')">
+            <input type="button" value="Ocultar Elementos" onclick="ocultarElemento('lista3')">
+            <input type="button" value="Mostrar Elementos" onclick="mostrarElemento()">
+        </div>
+        <div>
+            <ul id="lista3">
+                <li>Elemento X</li>
+                <li>Elemento Y</li>
+                <li>Elemento Z</li>
+            </ul>
+        </div>
+    </section>
+</main>
+</body>
+</html>
