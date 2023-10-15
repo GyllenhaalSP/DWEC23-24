@@ -1,8 +1,14 @@
 function select(){
     var item = document.querySelectorAll(".item");
-    console.log(item);
-    var destacado = document.querySelectorAll(".destacado:nth-of-type(-n+3)");
-    console.log(destacado);
-    var oculto = document.querySelectorAll(".oculto:nth-last-of-type(-n+2)");
-    console.log(oculto);
+    item.forEach(element => {
+        console.log(element.innerText);
+    });
+    var destacado = document.querySelectorAll(".padre .destacado:nth-child(-n+3)");
+    destacado.forEach(element => {
+        console.log(element.innerText);
+    });
+    var oculto = document.querySelectorAll(".padre .oculto:nth-last-child(-n+2)");
+    oculto.forEach(element => {
+        console.log(element.innerText);
+    });
 }
