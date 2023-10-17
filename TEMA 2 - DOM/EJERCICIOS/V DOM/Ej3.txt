@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="EJERCICIO 3 - DOM V">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="author" content="Víctor Hellín Sáez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJERCICIO 3 - DOM V</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div id="contenedor">
+    <p>Esto es un párrafo 1</p>
+    <p>Esto es un párrafo 2</p>
+    <span>Esto es un span 1</span><br>
+    <span>Esto es un span 2</span>
+    <p>Esto es un párrafo 1</p>
+    <p>Esto es un párrafo 2</p>
+</div><br>
+<button type="submit" onclick="resaltarSiguiente()">Resaltar Siguiente</button>
+<button type="submit" onclick="resaltarAnterior()">Resaltar Anterior</button>
+</body>
+</html>
+
+const padre = document.getElementById("contenedor");
+const hijos = padre.children;
+
+function resaltarSiguiente(){
+    for (let i = 0; i < hijos.length; i++) {
+        if(hijos[i].nextElementSibling.nodeName === 'SPAN'){
+            hijos[i+1].style.backgroundColor = "red";
+            break;
+        }
+    }
+}
+
+function resaltarAnterior(){
+    for (let i = 1; i < hijos.length; i++) {
+        if(hijos[i].previousElementSibling.nodeName === 'SPAN'){
+            hijos[i-1].style.backgroundColor = "red";
+            break;
+        }
+    }
+}
