@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+input[type="text"],
+input[type="email"]{
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.ok {
+    background-color: green;
+}
+
+.error{
+    background-color: red;
+}
