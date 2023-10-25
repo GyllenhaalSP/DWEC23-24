@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="PRÁCTICA 2-2 - DOM V">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Galería de imágenes</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<main>
+    <header>
+        <nav>
+            <h1>GALERÍA DE IMÁGENES</h1>
+        </nav>
+    </header>
+    <section>
+        <!-- Div contenedor de todas las previews de las imágenes -->
+        <div class="mainDiv" >
+            <img class="secondary" src="img/001.png" alt="Bulbasaur" onclick="changeImage(this)">
+            <img class="secondary" src="img/002.png" alt="Ivysaur" onclick="changeImage(this)">
+            <img class="secondary" src="img/003.png" alt="Venusaur" onclick="changeImage(this)">
+            <img class="secondary" src="img/004.png" alt="Charmander" onclick="changeImage(this)">
+            <img class="secondary" src="img/005.png" alt="Charmeleon" onclick="changeImage(this)">
+            <img class="secondary" src="img/006.png" alt="Charizard" onclick="changeImage(this)">
+            <img class="secondary" src="img/007.png" alt="Squirtle" onclick="changeImage(this)">
+            <img class="secondary" src="img/008.png" alt="Wartortle" onclick="changeImage(this)">
+            <img class="secondary" src="img/009.png" alt="Blastoise" onclick="changeImage(this)">
+        </div>
+        <!-- Imagen principal -->
+        <img id="main" class="main" src="img/001.png" alt="Bulbasaur">
+        <!-- Título de nivel 2 que contendrá el nombre del pokémon -->
+        <h2 id="pokemon">BULBASAUR</h2>
+    </section>
+    <footer>
+        <p>&copy; Daniel Alonso Lázaro - DWEC 2023</p>
+    </footer>
+</main>
+</body>
+</html>
+
+/* INICIO DE LOS RESETS */
+/* CAMBIA EL MODELO DEL BOX-SIZING: PADDING Y BORDER SE AJUSTAN AL CONTENIDO */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* NORMALIZA EL MARGEN POR DEFECTO DE LOS NAVEGADORES Y
+ AÑADE UN ALTO DE LÍNEA QUE INCREMENTA LA LEGIBILIDAD */
+* {
+    margin: 0;
+    line-height: calc(1em + 0.5rem);
+}
+
+/* ELIMINA EL CURSOR DE TEXTO EXCEPTO EN ELEMENTOS INPUT */
+*:not(input) {
+    caret-color: transparent;
+}
+
+/* MEJORA EL RENDERIZADO DE TEXTO */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* MEJORA EN LOS VALORES POR DEFECTO DE LOS ELEMENTOS QUE CONTIENEN MEDIA */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* FUERZA LA HERENCIA DE FUENTES EN LOS ELEMENTOS DE FORMULARIO */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* ELIMINA LOS DESBORDAMIENTOS DE TEXTO Y AÑADE GUIONES EN LOS CASOS NECESARIOS */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+/* FIN DE LOS RESETS */
+
+@import 'resets.css';
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e8f5e9;
+    color: #004d40;
+    padding: 50px;
+}
+
+header {
+    background-color: #66bb6a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+nav h1 {
+    font-size: 2.5em;
+}
+
+section {
+    background-color: #c8e6c9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+img.secondary {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border: 3px solid #004d40;
+    border-radius: 15px;
+    transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
+}
+
+img.secondary:hover {
+    transform: scale(1.15);
+}
+
+img.main {
+    width: 312px;
+    height: 312px;
+    border: 3px solid #004d40;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #004d40;
+    font-size: 2em;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #004d40;
+    padding: 20px;
+    background-color: #c8e6c9;
+    border-radius: 10px;
+}
+
+//Llamamos a todas las imágenes del archivo html
+let images = document.getElementsByTagName("img");
+
+//Recorremos todas las imágenes y les añadimos los eventos para que cambie el borde al pasar el ratón por encima
+for (let i = 0; i < images.length; i++){
+    images[i].onmouseover = function(){
+        this.style.borderColor = "#66bb6a";
+        if(this.id === "main"){
+            this.nextElementSibling.style.color = "#66bb6a";
+        }
+    };
+    images[i].onmouseout = function(){
+        this.style.borderColor = "#004d40";
+        if(this.id === "main"){
+            this.nextElementSibling.style.color = "#004d40";
+        }
+    }
+}
+
+// Función que cambia la imagen principal y el texto de la descripción
+function changeImage(imagen){
+    let img = document.getElementById("main");
+    let desc = document.getElementById("pokemon");
+    img.src = imagen.src;
+    desc.innerHTML = imagen.alt.toUpperCase();
+}
+

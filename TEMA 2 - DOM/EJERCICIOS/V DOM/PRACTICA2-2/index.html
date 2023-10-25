@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="PRÁCTICA 2-2 - DOM V">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Galería de imágenes</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<main>
+    <header>
+        <nav>
+            <h1>GALERÍA DE IMÁGENES</h1>
+        </nav>
+    </header>
+    <section>
+        <!-- Div contenedor de todas las previews de las imágenes -->
+        <div class="mainDiv" >
+            <img class="secondary" src="img/001.png" alt="Bulbasaur" onclick="changeImage(this)">
+            <img class="secondary" src="img/002.png" alt="Ivysaur" onclick="changeImage(this)">
+            <img class="secondary" src="img/003.png" alt="Venusaur" onclick="changeImage(this)">
+            <img class="secondary" src="img/004.png" alt="Charmander" onclick="changeImage(this)">
+            <img class="secondary" src="img/005.png" alt="Charmeleon" onclick="changeImage(this)">
+            <img class="secondary" src="img/006.png" alt="Charizard" onclick="changeImage(this)">
+            <img class="secondary" src="img/007.png" alt="Squirtle" onclick="changeImage(this)">
+            <img class="secondary" src="img/008.png" alt="Wartortle" onclick="changeImage(this)">
+            <img class="secondary" src="img/009.png" alt="Blastoise" onclick="changeImage(this)">
+        </div>
+        <!-- Imagen principal -->
+        <img id="main" class="main" src="img/001.png" alt="Bulbasaur">
+        <!-- Título de nivel 2 que contendrá el nombre del pokémon -->
+        <h2 id="pokemon">BULBASAUR</h2>
+    </section>
+    <footer>
+        <p>&copy; Daniel Alonso Lázaro - DWEC 2023</p>
+    </footer>
+</main>
+</body>
+</html>
