@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 3</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<h1>EJERCICIO 3</h1>
+<div id="container">
+    <ul id="lista">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento Especial</li>
+        <li>Elemento 3</li>
+    </ul>
+    <p id="parrafo"></p>
+</div>
+</body>
+</html>
+
+let lista = document.getElementById("lista");
+let parrafo = document.getElementById("parrafo");
+
+function specialClick(e){
+    parrafo.innerText = "Hiciste click en: " + e.target.innerText;
+    e.stopPropagation();
+}
+
+let especial = lista.children[2];
+especial.addEventListener("click", specialClick);
+
+lista.addEventListener("click", (e) => {
+    parrafo.innerText = 'Hiciste click en: ' + e.target.innerText;
+    alert("Hiciste click en la lista");
+});

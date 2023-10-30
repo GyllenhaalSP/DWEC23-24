@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 6</title>
+    <script defer src="main.js"></script>
+</head>
+<body id="container">
+<div id="divBlanco" style="width: 500px; height: 500px; border: black solid 2px;">
+    <p id="pBlanco" style="color: #000;"></p>
+    <div id="divAzul" style="width: 200px; height: 200px; background-color: blue; float: right;">
+        <p id="pAzul" style="color: #000;"></p>
+    </div>
+    <button id="boton" style="background-color: green; padding: 20px; margin-top: 10px; border-radius: 8px; color: white;">Haz click</button>
+    <p id="pBoton"style="color: #000;"></p>
+</div>
+</body>
+</html>
+
+let container = document.getElementById("container");
+
+container.addEventListener("click", function(event) {
+    if (event.target.id === "divBlanco") {
+        let pBlanco = document.getElementById("pBlanco");
+        pBlanco.innerHTML = "Has tocado el div blanco";
+    } else if (event.target.id === "divAzul") {
+        let pAzul = document.getElementById("pAzul");
+        pAzul.innerHTML = "Has tocado el div azul";
+    } else if (event.target.id === "boton") {
+        let pBoton = document.getElementById("pBoton");
+        pBoton.innerHTML = "Has tocado el botón";
+    }
+});

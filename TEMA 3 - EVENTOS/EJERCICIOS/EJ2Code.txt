@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 2</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <h1>EJERCICIO 2</h1>
+    <div id="container">
+        <button class="boton" id="boton1">Boton 1</button>
+        <button class="boton" id="boton2">Boton 2</button>
+        <button class="boton" id="boton3">Boton 3</button>
+    </div>
+</body>
+</html>
+
+let boton = document.getElementsByClassName("boton");
+let container = document.getElementById("container");
+
+container.addEventListener("click", function (containerEvent) {
+    alert(containerEvent.target.id);
+    if(containerEvent.target.className === "boton"){
+        alert("Has pulsado el botón " + containerEvent.target.id + " y el evento ha sido " + containerEvent.type);
+    }
+});

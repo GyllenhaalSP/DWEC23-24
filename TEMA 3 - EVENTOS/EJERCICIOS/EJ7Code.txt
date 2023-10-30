@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 7</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div id="container" style="width: 700px; height: 200px; background-color: orange; padding: 100px;">
+    <p>This div element has an onmousemove event handler that displays a random number every time you move your mouse inside this orange field</p>
+    <p>Click the button to remove the div's event handler.</p>
+    <button id="remove">Remove</button>
+</div>
+<p id="numAleatorio"></p>
+</body>
+</html>
+
+let container = document.getElementById("container");
+let boton = document.getElementById("remove");
+let p = document.getElementById("numAleatorio");
+
+function generarAleatorio() {
+    let numAleatorio = Math.floor(Math.random() * 10) + 1;
+    p.innerHTML = numAleatorio.toString();
+}
+
+container.addEventListener("mousemove", generarAleatorio);
+
+container.addEventListener("click", function(event) {
+    if (event.target.id === "remove"){
+        container.removeEventListener("mousemove", generarAleatorio);
+    }
+});
