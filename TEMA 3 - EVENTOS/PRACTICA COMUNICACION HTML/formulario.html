@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="author" content="Víctor Hellín Sáez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>COMUNICACIÓN HTML</title>
+    <script defer src="formulario.js"></script>
+</head>
+<body>
+<div>
+    <form id="form" class="form" action="javascript:void(0);" onsubmit="enviarDatos()" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+        <label for="ciclo">Ciclo</label>
+        <input type="text" name="ciclo" id="ciclo" placeholder="Ciclo">
+        <label for="curso">Curso</label>
+        <input type="text" name="curso" id="curso" placeholder="Curso">
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+</body>
+</html>

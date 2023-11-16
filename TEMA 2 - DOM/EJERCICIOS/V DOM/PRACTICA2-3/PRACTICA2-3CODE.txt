@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>TO-DO</title>
-    <script defer src="main.js"></script>
+    <script defer src="formulario.js"></script>
 </head>
 <body>
 <main>
@@ -227,7 +227,7 @@ const guardarDatos = () => {
         datos.push(tarea.getElementsByClassName("tarea")[0].innerHTML);
     }
     localStorage.setItem("datos", JSON.stringify(datos));
-    console.log("=>(main.js:34) ", "Datos guardados");
+    console.log("=>(formulario.js:34) ", "Datos guardados");
 }
 
 function agregarTarea(tarea){

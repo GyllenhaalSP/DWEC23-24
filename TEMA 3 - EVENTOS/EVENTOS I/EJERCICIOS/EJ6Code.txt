@@ -6,7 +6,7 @@
     <meta name="author" content="Daniel Alonso Lázaro">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EJERCICIO 6</title>
-    <script defer src="main.js"></script>
+    <script defer src="formulario.js"></script>
 </head>
 <body id="container">
 <div id="divBlanco" style="width: 500px; height: 500px; border: black solid 2px;">

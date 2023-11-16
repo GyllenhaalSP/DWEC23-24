@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
     <title>PRÁCTICA FINAL OBLIGATORIA - PREPARACIÓN EXAMEN</title>
-    <script src="main.js" defer></script>
+    <script src="formulario.js" defer></script>
 </head>
 <body>
 <article id="ej1">

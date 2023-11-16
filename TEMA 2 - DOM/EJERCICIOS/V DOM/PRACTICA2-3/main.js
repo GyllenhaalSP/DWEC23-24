@@ -30,7 +30,7 @@ const guardarDatos = () => {
         datos.push(tarea.getElementsByClassName("tarea")[0].innerHTML);
     }
     localStorage.setItem("datos", JSON.stringify(datos));
-    console.log("=>(main.js:34) ", "Datos guardados");
+    console.log("=>(formulario.js:34) ", "Datos guardados");
 }
 
 function agregarTarea(tarea){

@@ -43,8 +43,8 @@ let h2teclado2 = document.getElementById("h2teclado2");
 let teclaRandom = generarTeclaAleatoria();
 
 document.addEventListener("keyup", function(event) {
-    console.log("=>(main.js:42) teclaRandom", teclaRandom);
-    console.log("=>(main.js:43) event.key", event.key);
+    console.log("=>(formulario.js:42) teclaRandom", teclaRandom);
+    console.log("=>(formulario.js:43) event.key", event.key);
     if(event.key === teclaRandom) {
         h2teclado2.innerHTML = "Acertaste, la tecla era " + teclaRandom + " y has pulsado " + event.key;
         teclaRandom = generarTeclaAleatoria();
