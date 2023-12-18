@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.respuestas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.respuestas button{
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    margin-top: 10px;
+    border: #ccc solid 5px;
+    border-radius: 100px;
+}
+
+.letras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap row;
+    gap: 20px;
+    width: 550px;
+    height: auto;
+    margin: 20px;
+}
+
+.letras .letra{
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 5px;
+    border: #ccc solid 3px;
+    border-radius: 50px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.pistas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    width: 500px;
+    height: auto;
+}
+
+.pista{
+    width: 30px;
+    height: 30px;
+}
