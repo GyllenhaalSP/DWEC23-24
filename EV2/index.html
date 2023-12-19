@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Índice de Prácticas - DWEC 2EV</title>
+    <script defer>
+        function iniciarPractica(ruta, nombre) {
+            fetch(`/iniciar-practica?ruta=${encodeURIComponent(ruta)}`)
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    if (nombre === 'hola-mundo') {
+                        setTimeout(() => {
+                            window.open(`https://node-dev.visualdynamics.fun/${nombre}`, '_blank');
+                        }, 500);
+                    }else {
+                        document.body.innerHTML = data;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+<h1>Prácticas de la segunda evaluación de DWEC</h1>
+<h2>¡Bienvenido! Esta es la página principal.</h2>
+<button onclick="iniciarPractica('EV2/TEMA-4/PRACTICA-HOLA-MUNDO', 'hola-mundo')">Práctica Hola Mundo</button><br>
+<button onclick="iniciarPractica('EV2/TEMA-4/PRACTICA_4-1-1', 'practica-4-1-1')">Práctica 4.1.1</button><br>
+<a href="/saludo"><button>Práctica 4.1.2 - Saludo</button></a>
+<a href="/despedida"><button>Práctica 4.1.2 - Despedida</button></a>
+</body>
+</html>
