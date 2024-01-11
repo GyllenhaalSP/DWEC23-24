@@ -24,10 +24,83 @@ const server = http.createServer((req, res) => {
     }else if (pathname === '/saludo') {
         res.writeHead(200, {'Content-Type': 'text/html; charset=UTF-8'});
         res.end(`<h1>¡Hola! Bienvenido a la página de saludos.</h1>`);
-    }else if (pathname === '/despedida'){
+    }else if (pathname === '/despedida') {
         res.writeHead(200, {'Content-Type': 'text/html;Charset=UTF-8'});
         res.end(`<h1>¡Hasta Luego! Gracias por visitar la página de despedida.</h1>`);
-    } else {
+    } else if(pathname === '/datosJSON') {
+        let data = JSON.parse(fs.readFileSync('/home/dwes2324/node-clase/EV2/TEMA-4/PRACTICA_4-1/4-2-2/datos.json', 'utf8'));
+        let html = `<h1>Contenido del archivo</h1><br><pre>${JSON.stringify(data, null, "\t")}</pre>`;
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(html);
+        const nuevosDatos = {
+            usuarios: [
+                { id: 4, nombre: "NuevoUsuario4", edad: 25 },
+                { id: 5, nombre: "Víctor", edad: 30 },
+                { id: 6, nombre: "NuevoUsuario6", edad: 22 }
+            ]
+        };
+
+        const nuevosDatosJSON = JSON.stringify(nuevosDatos);
+
+        fs.writeFile('/home/dwes2324/node-clase/EV2/TEMA-4/PRACTICA_4-1/4-2-2/nuevosDatos.json', nuevosDatosJSON, (error) => {
+            if (error) {
+                console.log(`Error al escribir el archivo: ${error.message}`);
+                return;
+            }
+            console.log('Archivo escrito correctamente:');
+            console.log(nuevosDatosJSON);
+        });
+    } else if (pathname === '/ejercicioJSON') {
+        fs.readFile('/home/dwes2324/node-clase/EV2/TEMA-4/EJERCICIOJSON/index.html', (error, contenido) => {
+            if (error) {
+                console.log(`Error al leer el archivo: ${error.message}`);
+                res.writeHead(500);
+                res.end('Error del servidor');
+                return;
+            }
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(contenido);
+        });
+    } else if (pathname === '/script.js') {
+        fs.readFile('/home/dwes2324/node-clase/EV2/TEMA-4/EJERCICIOJSON/script.js', (error, contenido) => {
+            if (error) {
+                console.log(`Error al leer el archivo: ${error.message}`);
+                res.writeHead(500);
+                res.end('Error del servidor');
+                return;
+            }
+            res.writeHead(200, {'Content-Type': 'text/javascript'});
+            res.end(contenido);
+        });
+    } else if (pathname === '/styles.css') {
+        fs.readFile('/home/dwes2324/node-clase/EV2/TEMA-4/EJERCICIOJSON/styles.css', (error, contenido) => {
+            if (error) {
+                console.log(`Error al leer el archivo: ${error.message}`);
+                res.writeHead(500);
+                res.end('Error del servidor');
+                return;
+            }
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.end(contenido);
+        });
+    } else if (pathname === '/datos') {
+        let data = JSON.parse(fs.readFileSync('/home/dwes2324/node-clase/EV2/TEMA-4/EJERCICIOJSON/datos.json', 'utf8'));
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify(data));
+    } else if (pathname === '/guardar') {
+        let data = JSON.parse(fs.readFileSync('/home/dwes2324/node-clase/EV2/TEMA-4/EJERCICIOJSON/datos.json', 'utf8'));
+        data.users.push({nombre: "Nuevo Usuario", edad: 30, ciudad: "Ciudad Nueva"});
+        fs.writeFile('/home/dwes2324/node-clase/EV2/TEMA-4/EJERCICIOJSON/datos.json', JSON.stringify(data), (error) => {
+            if (error) {
+                console.log(`Error al escribir el archivo: ${error.message}`);
+                res.writeHead(500);
+                res.end('Error del servidor');
+                return;
+            }
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.end('Datos guardados correctamente');
+        });
+    }else {
         servirArchivo('404.html', 'text/html', res);
     }
 });
