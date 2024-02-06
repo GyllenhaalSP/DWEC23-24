@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="author" content="Víctor Hellín Sáez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FORMULARIO</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+<div>
+    <form action="/users" method="POST">
+        <label>First Name
+            <input type="text" name="firstName" placeholder="First Name" value="<%= locals.firstName%>">
+        </label>
+        <label>Last Name
+            <input type="text" name="lastName" placeholder="Last Name" value="<%= locals.lastName%>">
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
