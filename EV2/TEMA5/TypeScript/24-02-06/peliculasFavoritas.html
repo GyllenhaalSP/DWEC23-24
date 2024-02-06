@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Alonso Lázaro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 4</title>
+    <script defer src="peliculasFavoritas.js"></script>
+</head>
+<body>
+    <h2>Ingresa tu película favorita</h2>
+    <form id="formularioPelicula">
+        <label for="titulo"></label><input type="text" id="titulo" placeholder="Título" required>
+        <label for="ano"></label><input type="number" id="ano" placeholder="Año de lanzamiento" required>
+        <label for="genero"></label><input type="text" id="genero" placeholder="Género">
+        <button type="submit">Agregar Película</button>
+    </form>
+    <ul id="listaPeliculas"></ul>
+</body>
+</html>
